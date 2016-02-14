@@ -1,5 +1,6 @@
 import unittest
 import median
+import random
 
 class TestMedianestCase(unittest.TestCase):
     def test_case0(self):
@@ -97,7 +98,12 @@ class TestMedianestCase(unittest.TestCase):
         mf.addNum(5)
         self.assertEqual(3, mf.findMedian())
 
-
+    def test_performance(self):
+        mf = median.MedianFinder()
+        num = random.randint(1, 10000)
+        for _ in range(0, 10000):
+            mf.addNum(num)
+            mf.findMedian()
 
 if __name__ == '__main__':
         unittest.main()
